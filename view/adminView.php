@@ -178,10 +178,11 @@
 						<h4>Responsables de Salas Cuernavaca</h4>
 						<p></p>
 						<ul>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:ifigueroa@grupak.com.mx">Irma Figueroa(Sala de Juntas Papel)</a></li>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:tpm.cuernavaca@grupak.com.mx">Juan Jose Flores(Sala de Corrugado)</a></li>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:olopez@grupak.com.mx">Oscar Omar López(Dominik Tatarca)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:ifigueroa@grupak.com.mx">Irma Figueroa(Sala de Juntas Direccion Papel)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:mnavad@grupak.com.mx">Miguel Angel Nava(Sala de Juntas Papel)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:tpm.cuernavaca@grupak.com.mx">Juan Jose Flores(Dominik Tatarka)</a></li>
 							<li><i class="fa fa-angle-right"></i> <a href="mailto:mnava@grupak.com.mx">Myra Nava(Sala de Corrugado)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:olopez@grupak.com.mx">Oscar Omar López(Sala Jose Gomez)</a></li>
 						</ul>
 					</div>
 				</div>
@@ -204,9 +205,9 @@
 							<h4>Responsables de Salas Hidalgo</h4>
 							<p></p>
 							<ul>
-								<li><i class="fa fa-angle-right"></i> <a href="#">Ariana Rivera (Sala de Juntas)</a></li>
-								<li><i class="fa fa-angle-right"></i> <a href="#">Yessica Salazar (Sala de Capacitación)</a></li>
-								<li><i class="fa fa-angle-right"></i> <a href="#">Ulises Alonso (Sala Tic)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:arivera@grupak.com.mx">Ariana Rivera (Sala de Juntas)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:ysalazar@grupak.com.mx">Yessica Salazar (Sala de Capacitación)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:ualonso@grupak.com.mx">Ulises Alonso (Sala Tic)</a></li>
 							</ul>
 						</div>
 				</div>
