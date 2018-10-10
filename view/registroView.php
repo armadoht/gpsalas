@@ -239,6 +239,7 @@
 								<li><i class="fa fa-angle-right"></i> <a href="mailto:arivera@grupak.com.mx">Ariana Rivera (Sala de Juntas)</a></li>
 								<li><i class="fa fa-angle-right"></i> <a href="mailto:ysalazar@grupak.com.mx">Yessica Salazar (Sala de Capacitación)</a></li>
 								<li><i class="fa fa-angle-right"></i> <a href="mailto:ualonso@grupak.com.mx">Ulises Alonso (Sala Tic)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:elopez@grupak.com.mx">Edith Lopez (Sala Webex)</a></li>
 							</ul>
 						</div>
 				</div>
