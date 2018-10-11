@@ -19,18 +19,26 @@ class LoginController extends ControladorBase{
 		session_start();
 		if($_SESSION["user"]){
 			$registro = new Registro();
-			$registro->setTema($_POST["tema"]);
-			$registro->setIdCompanias($_POST["localidad"]);
-			$registro->setIdSala($_POST["sala"]);
-			$registro->setFecha($_POST["fecha"]);
-			$registro->setHoraInicio($_POST["horaInicio"]);
-			$registro->setHoraFin($_POST["horaFin"]);
-			$registro->setSolicitante($_POST["tipoEquipo"]);
-
-			$registro->save();
+			if($_POST["tema"] == '' || $_POST["tipoEquipo"] == '' || $_POST["horaInicio"] == '' || $_POST["horaFin"] == ''){
+					$this->redirect("Login","readLoad");
+				}else{
+					$registro->setTema($_POST["tema"]);
+					$registro->setIdCompanias($_POST["localidad"]);
+					$registro->setIdSala($_POST["sala"]);
+					$registro->setFecha($_POST["fecha"]);
+					$registro->setHoraInicio($_POST["horaInicio"]);
+					$registro->setHoraFin($_POST["horaFin"]);
+					$registro->setSolicitante($_POST["tipoEquipo"]);
+					if($registro->valRegistroSala() == 0){
+						$registro->save();
+					}
+					
+				}
 		}
 		$this->redirect("Login","readLoad");
 	}
+
+	
 
 	public function readLoad(){
 		session_start();

@@ -97,6 +97,17 @@ class Registro extends EntidadBase{
 		}
 	}
 
+	public function valRegistroSala(){
+		$query = "SELECT * FROM `registro` WHERE (`fecha`='$this->fecha' && `idSala`='$this->idSala') && (`horaInicio`<='$this->horaInicio' && `horaFin` >= '$this->horaFin')";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){		
+			return 1;
+		}else{
+			return 0;
+		}
+
+	}
+
 	
 
 }

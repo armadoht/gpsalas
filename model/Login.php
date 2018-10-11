@@ -114,7 +114,5 @@ class Login extends EntidadBase{
 		}
 	}
 
-	
-
 }
 ?>

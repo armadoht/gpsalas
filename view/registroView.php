@@ -152,6 +152,7 @@
 			<div class="col-md-12">
 				<table class="table table-striped">
 					<thead>
+						<th>Item</th>
 						<th>Tema</th>
 						<th>Lugar</th>
 						<th>Sala</th>
@@ -164,6 +165,7 @@
 							if(is_array($datosRegistros)){
 									foreach ($datosRegistros as $valor) {
 									echo "<tr>";
+									echo "<th>".$valor[0]."</th>";
 									echo "<th>".$valor[1]."</th>";
 									echo "<th>".$valor[2]."</th>";
 									echo "<th>".$valor[3]."</th>";
