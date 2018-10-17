@@ -88,23 +88,36 @@
 		<div class="bor"></div>
 		<div class="row">
 			<div class="col-md-12">
-				<h3>Registro de Responsables de Sala</h3>
-				<form action="index.php?controller=Login&action=registro" method="post">
+				<h3>Permisos de Salas</h3>
+				<form action="index.php?controller=sala&action=registroPermiso" method="post">
 					<div class="form-row">
 						<!-- Usuario -->
 						<div class="form-group col-md-4">
-							<label for="Usuario"><strong>Usuario</strong></label>
-							<input type="text" name="usuario" class="form-control" class="form-control">
+							<label for=""><strong>Usuarios:</strong></label>
+							<select class="form-control" name="usuario">
+						      <option value=""></option>
+						      <?php
+										if(is_array($usuarios)){
+												foreach ($usuarios as $valor){
+												echo "<option value='".$valor[0]."'>".$valor[1]."</option>";
+											}
+										}
+									?>
+					    </select>
 						</div>
 						<!-- Puesto -->
 						<div class="form-group col-md-4">
-							<label for="Puesto"><strong>Email</strong></label>
-							<input type="text" name="email" class="form-control">
-						</div>
-						<!-- Departamento -->
-						<div class="form-group col-md-4">
-							<label for="Departamento"><strong>Password</strong></label>
-							<input type="text" name="password" class="form-control">
+							<label for="Puesto"><strong>Salas:</strong></label>
+							<select class="form-control" name="sala">
+						      <option value=""></option>
+						      <?php
+										if(is_array($salas)){
+												foreach ($salas as $valor){
+												echo "<option value='".$valor[0]."'>".$valor[1]." - ".$valor[2]."</option>";
+											}
+										}
+									?>
+					    </select>
 						</div>
 						<!-- Boton de Guardar -->
 						<div class="form-group col-md-12 ">
@@ -114,6 +127,7 @@
 				</form>
 			</div>
 		</div>
+		<a href=""></a>
 		<!--\row-->
 		<div class="bor"></div>
 		<!-- Registro de Salas -->
@@ -122,29 +136,28 @@
 				<table class="table table-striped">
 					<thead>
 						<th scope="col">Item</th>
-						<th scope="col">Usuario</th>
-						<th scope="col">Email</th>
-						<th scope="col">Password</th>
-						<th scope="col">Fecha de Registro</th>
-						<th scope="col">Estado</th>
+						<th scope="col">Responsable</th>
+						<th scope="col">Sals</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
 					</thead>
-					<a href=""></a>
 					<tbody>
 						<?php
-							if(is_array($arrayUsuarios)){
-									foreach ($arrayUsuarios as $usuario) {
+							if(is_array($arrayDatos)){
+								 $cont=1;
+									foreach ($arrayDatos as $valor){
 									echo "<tr>";
-									echo "<th>".$usuario->idAcceso."</th>";
-									echo "<th>".$usuario->usuario."</th>";
-									echo "<th>".$usuario->email."</th>";
-									echo "<th>".$usuario->password."</th>";
-									echo "<th>".$usuario->fechaRegistro."</th>";
-									if($usuario->estado == 1){
-										echo '<th><a href="">Activo</a></th>';
-									}else{
-										echo '<th><a href="">Baja</a></th>';
-									}
+									echo "<th>".$cont."</th>";
+									echo "<th>".$valor[1]."</th>";
+									echo "<th>".$valor[3]."</th>";
+									echo "<th>";
+									echo "<a href=''>Editar</a><i class='fas fa-pencil-alt'></i>";
+									echo "</th>";
+									echo "<th>";
+									echo "<a href=''>Eliminar</a><i class='far fa-trash-alt'></i>";
+									echo "</th>";
 									echo "</tr>";
+									$cont++;
 								}
 							}
 						?>
@@ -202,7 +215,7 @@
 							</ul>
 						</div>
 				</div>
-				<!-- .\end col-md-4 -->
+				
 				<div class="col-md-4">
 						<div class="widget">
 							<h4>Responsables de Salas Hidalgo</h4>

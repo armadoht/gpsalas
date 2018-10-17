@@ -75,6 +75,9 @@
 						<a class="nav-link" href="index.php?controller=sala&action=index">Registro de Salas del Grupo</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="index.php?controller=sala&action=asignar">Asignar Salas</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="index.php?controller=main&action=index">Salir</a>
 					</li>
 				</ul>

@@ -5,12 +5,21 @@ class Sala extends EntidadBase{
 	private $nombreSala;
 	private $idCompanias;
 
+	private $idAcceso;
+
 	public function Sala(){
 		$table = "salas";
 		parent::EntidadBase($table);
 	}
 
 	/***********GETTER AND SETTER************/
+	public function setIdAcceso($idAcceso){
+		$this->idAcceso = $idAcceso;
+	}
+
+	public function getIdAcceso(){
+		return $this->idAcceso;
+	}
 
 	public function getIdSalas(){
 		return $this->idSalas;
@@ -38,6 +47,11 @@ class Sala extends EntidadBase{
 		return $save = $this->db()->query($query);
 	}
 
+	public function savePermisos(){
+		$query="INSERT INTO `accesosalas` (`idAccesoSala`, `idSala`, `idAcceso`, `Estarus`) VALUES (NULL, '$this->idSalas', '$this->idAcceso', '1');";
+		return $save = $this->db()->query($query);
+	}
+
 	public function arrayInerJoin(){
 		$query = "SELECT salas.idSalas, salas.nombreSala, companias.nombre FROM companias INNER JOIN salas ON salas.idCompanias = companias.idCompanias";
 		$datos = $this->db()->query($query);
@@ -49,9 +63,40 @@ class Sala extends EntidadBase{
 		return $resultSet;
 	}
 
+	public function arraySalaRespo(){
+		$query = "SELECT acceso.idAcceso,acceso.usuario,salas.idSalas,salas.nombreSala FROM `accesosalas` INNER JOIN acceso ON acceso.idAcceso = accesosalas.idAcceso
+		INNER JOIN salas on salas.idSalas = accesosalas.idSala";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){
+			while ($row = $datos->fetch_array()) {
+				$resultSet[] = $row;
+			}		
+		}
+		return $resultSet;
+	}
+
+	public function usuariosSistema(){
+		$query = "SELECT idAcceso, usuario FROM `acceso`";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){
+			while ($row = $datos->fetch_array()) {
+				$resultSet[] = $row;
+			}		
+		}
+		return $resultSet;
+	}
+
+	public function salasSistemas(){
+		$query = "SELECT salas.idSalas,salas.nombreSala,companias.nombreCorto FROM salas INNER JOIN companias on salas.idCompanias = companias.idCompanias";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){
+			while ($row = $datos->fetch_array()) {
+				$resultSet[] = $row;
+			}		
+		}
+		return $resultSet;
+	}
+
 
 }
-
-
-
 ?>
