@@ -53,6 +53,6 @@ class SalaController extends ControladorBase{
 		));
 	}
 
-
+	
 }//.\end class
 ?>

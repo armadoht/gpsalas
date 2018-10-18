@@ -97,6 +97,8 @@ class Sala extends EntidadBase{
 		return $resultSet;
 	}
 
+	
+
 
 }
 ?>

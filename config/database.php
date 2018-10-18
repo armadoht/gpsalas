@@ -8,4 +8,5 @@
 		"database" => "salas_grupak",
 		"charset" => "utf8",
 	);
+	
 ?>

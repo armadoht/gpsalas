@@ -15,6 +15,9 @@ class LoginController extends ControladorBase{
 		$this->view("main",array("main" => "index"));
 	}
 
+/********CRUD*******/
+
+	//Create -> Registro
 	public function registroPropio(){
 		session_start();
 		if($_SESSION["user"]){
@@ -38,7 +41,24 @@ class LoginController extends ControladorBase{
 		$this->redirect("Login","readLoad");
 	}
 
-	
+	//Delet -> Registo
+	public function delet(){
+		session_start();
+		$login = new Login();
+		$datos = $login->getByIdRegistro($_GET["valor"]);
+		$this->view("delet", array(
+				"datosRegistros" => $datos
+			));
+	}
+
+	//Confirmacion Aceptada
+	public function borrar(){
+		session_start();
+		$login = new Login();
+		$valor = $_GET["valor"];
+		$login->DeletRegistro($valor);
+		$this->redirect("Login","readLoad");
+	}
 
 	public function readLoad(){
 		session_start();
@@ -73,6 +93,7 @@ class LoginController extends ControladorBase{
 				"arrayUsuarios" => $arrayUsuarios
 			));		
 	}
+
 
 	public function validar(){
 		session_start();

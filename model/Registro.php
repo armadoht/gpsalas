@@ -108,6 +108,17 @@ class Registro extends EntidadBase{
 
 	}
 
+	public function registroById(){
+		$query = "SELECT * FROM registro WHERE idRegistro = $this->idRegistro";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){
+			while ($row = $datos->fetch_array()) {
+				$resultSet[] = $row;
+			}		
+			return $resultSet;
+		}
+	}
+
 	
 
 }

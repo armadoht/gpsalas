@@ -114,5 +114,23 @@ class Login extends EntidadBase{
 		}
 	}
 
+	public function getByIdRegistro($valor){
+		//Obtener los registros del propietario
+		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM acceso INNER JOIN accesosalas ON acceso.idAcceso = accesosalas.idAcceso INNER JOIN registro ON accesosalas.idSala = registro.idSala INNER JOIN companias ON registro.idCompanias = companias.idCompanias INNER JOIN salas on registro.idSala = salas.idSalas WHERE registro.idRegistro = $valor";
+		$datos = $this->db()->query($query);
+		if($datos->num_rows > 0){
+			while ($row = $datos->fetch_array()) {
+				$resultSet[] = $row;
+			}		
+			return $resultSet;
+		}
+	}
+
+	public function DeletRegistro($valor){
+		$query = "DELETE FROM `registro` WHERE `registro`.`idRegistro` = $valor";
+		$datos = $this->db()->query($query);
+		return  $datos;
+	}
+
 }
 ?>

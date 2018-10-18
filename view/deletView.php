@@ -63,7 +63,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h3>Bienvenido al Formulario de Registro: <?php echo $_SESSION['user']; ?>@grupak.com.mx</h3>
+				<h3>Eliminar Registro <?php echo $_SESSION['user']; ?>@grupak.com.mx</h3>
 			</div>
 			<div class="col-md-12">
 				<ul class="nav">
@@ -75,75 +75,7 @@
 					</li>
 				</ul>
 			</div>
-			<!--.\ col-md-12-->
-			<div class="col-md-12">
-				<div class="form">
-					<form action="index.php?controller=Login&action=registroPropio" method="post" class="form-horizontal">
-						<div class="form-row">
-							<!-- Tema -->
-							<div class="form-group col-md-6">
-								<label for="Tema"><strong>Tema:</strong></label>
-								<input type="text" name="tema" class="form-control" class="form-control">
-							</div>
-							<!-- Puesto -->
-							<div class="form-group col-md-6">
-								<label for="localidad"><strong>Sala Responsable:</strong></label>
-								<select class="form-control" name="sala">
-						      <?php
-						      	if(is_array($datosSalas)){
-						      		foreach ($datosSalas as  $value) {
-						      			echo "<option value='".$value[0]."'>".$value[1]."</option>";
-						      		}
-						      	}
-						      ?>
-					    	</select>
-							</div>
-							<!-- Departamento -->
-							<div class="form-group col-md-4">
-								<label for="Sala"><strong>Localidad:</strong></label>
-								<select class="form-control" name="localidad">
-						      <?php
-						      	if(is_array($datosSalas)){
-						      		foreach ($datosSalas as  $value) {
-						      			echo "<option value='".$value[2]."'>".utf8_encode($value[3])."</option>";
-						      		}
-						      	}else{
-						      			echo "<option>Error</option>";
-						      	}
-						      ?>
-					    	</select>
-							</div>
-							<!-- Marca -->
-							<div class="form-group col-md-4">
-								<label for="Marca"><strong>Fecha:</strong></label>
-								<input type="date" name="fecha" class="form-control" placeholder="YYY-MM-DD">
-							</div>
-							<!-- Modelo -->
-							<div class="form-group col-md-4">
-								<label for="Modelo"><strong>Hora Inicio</strong></label>
-								<input type="time" name="horaInicio" class="form-control" placeholder="24 hrs 15:00">
-							</div>
-							<!-- Service Tag-->
-							<div class="form-group col-md-4">
-								<label for="numeroSerie"><strong>Hora Fin</strong></label>
-								<input type="time" name="horaFin" class="form-control" placeholder="24 hrs 15:00">
-							</div>
-							<!-- Tipo Equipo -->
-							<div class="form-group col-md-8">
-								<label for="TipoEquipo"><strong>Solicitante</strong></label>
-								<input type="text" name="tipoEquipo" class="form-control">
-							</div>
-							
-							<div class="form-group col-md-12 ">
-								<button type="submit" class="btn btn-warning btn-lg btn-block">Guardar Registro</button>
-							</div>
-							
-						</div>
-
-					</form>
-				</div>
-			</div>
-
+			
 		</div>
 	</div>
 
@@ -158,14 +90,13 @@
 						<th>Sala</th>
 						<th>Fecha</th>
 						<th>Reservado por</th>
-						<th>Estatus</th>
-						<th>Eliminar</th>
 					</thead>
 					<tbody>
 						<?php
 							if(is_array($datosRegistros)){
 								$cont = 1;
 									foreach ($datosRegistros as $valor) {
+										$idRegistro = $valor[0];
 									echo "<tr>";
 									//echo "<th>".$valor[0]."</th>";
 									echo "<th>".$cont."</th>";
@@ -174,32 +105,20 @@
 									echo "<th>".$valor[3]."</th>";
 									echo "<th>Fecha: ".$valor[4]." De ".$valor[5]." a ".$valor[6]."</th>";
 									echo "<th>".$valor[7]."</th>";
-									if($valor[8] == 1){
-										echo "<th>Activo</th>";
-									}else{
-										echo "<th>Baja</th>";
-									}
-									/**Desarrollando 
-									echo "<th>";
-									echo "<a href='index.php?controller=Login&action=update&valor=".$valor[0]."'><i class='fas fa-pen'></i></a>";
-									echo "</th>";
-									**/
-									echo "<th>";
-									echo "<a href='index.php?controller=Login&action=delet&valor=".$valor[0]."''><i class='far fa-trash-alt'></i></a>";
-									echo "</th>";
-		
-									echo "</tr>";
-									$cont++;
 								}
 							}
 						?>
 					</tbody>
 				</table>
 			</div>
+			<div class="col-md-12">
+				<a class="text-danger" href="index.php?controller=Login&action=borrar&valor=<?php echo $idRegistro; ?>">Eliminar aquí <i class='far fa-trash-alt'></i></a>
+			</div>
 		</div>
 	</div>
-	
 
+
+	
 	<div class="bor"></div>
 	<!-- Start Footer -->
 	<footer>
