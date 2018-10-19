@@ -80,8 +80,8 @@ class Registro extends EntidadBase{
 	}
 
 	public function save(){
-		$hoy = date('Y-m-d');
-		$query = "INSERT INTO `registro` (`idRegistro`, `tema`, `idCompanias`, `idSala`, `fecha`, `horaInicio`, `horaFin`, `solicitante`, `estatus`) VALUES (NULL, '$this->tema', '$this->idCompanias', '$this->idSala', '$hoy', '$this->horaInicio', '$this->horaFin', '$this->solicitante', '1')";
+		//$hoy = date('Y-m-d');
+		$query = "INSERT INTO `registro` (`idRegistro`, `tema`, `idCompanias`, `idSala`, `fecha`, `horaInicio`, `horaFin`, `solicitante`, `estatus`) VALUES (NULL, '$this->tema', '$this->idCompanias', '$this->idSala', '$this->fecha', '$this->horaInicio', '$this->horaFin', '$this->solicitante', '1')";
 		$save = $this->db()->query($query);
 		return $save;
 	}
