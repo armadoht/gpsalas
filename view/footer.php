@@ -20,12 +20,12 @@
 						<h4>Responsables de Salas Cuernavaca</h4>
 						<p></p>
 						<ul>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:tpm.cuernavaca@grupak.com.mx">Irma Figueroa(Sala de Juntas Dirección Papel)</a></li>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:olopez@grupak.com.mx">Omar Lopez(Sala Jose Gomez)</a></li>
-							<li><i class="fa fa-angle-right"></i> <a href="mailto:ymendoza@grupak.com.mx">Yair Mendoza(Sala Jose Gomez)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:ifigueroa@grupak.com.mx">Irma Figueroa(Sala de Juntas Dirección Papel)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:olopez@grupak.com.mx">Oscar Lopez(Sala Jose Gomez)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:jmendoza@grupak.com.mx">Jair Mendoza(Sala Jose Gomez)</a></li>
 							<li><i class="fa fa-angle-right"></i> <a href="mailto:tpm.cuernavaca@grupak.com.mx">Juan Jose Flores(Dominik Tatarka)</a></li>
 							<li><i class="fa fa-angle-right"></i> <a href="mailto:tpm.cuernavaca@grupak.com.mx">Juan Jose Flores(Sala de Tpm)</a></li>
-							<li><i class="fa fa-angle-right"></i> <a href="#">Marco Ocampo(Sala de Juntas Gerencia Papel)</a></li>
+							<li><i class="fa fa-angle-right"></i> <a href="mailto:mcampos@grupak.com.mx">Marco Ocampo(Sala de Juntas Gerencia Papel)</a></li>
 						</ul>
 					</div>
 				</div>
@@ -36,8 +36,8 @@
 							<p></p>
 							<ul>
 								<li><i class="fa fa-angle-right"></i> <a href="mailto:omaldonado@grupak.com.mx">Olga Cristina Maldonado(Sala de Capacitación)</a></li>
-								<li><i class="fa fa-angle-right"></i> <a href="#">Dora Benjume(Sala de Juntas Corrugado)</a></li>
-								<li><i class="fa fa-angle-right"></i> <a href="#">Dora Benjume(Sala de Dirección Corrugado)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:dbenjume@grupak.com.mx">Dora Benjume(Sala de Juntas Corrugado)</a></li>
+								<li><i class="fa fa-angle-right"></i> <a href="mailto:dbenjume@grupak.com.mx">Dora Benjume(Sala de Dirección Corrugado)</a></li>
 							</ul>
 						</div>
 				</div>
