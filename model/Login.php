@@ -56,7 +56,7 @@ class Login extends EntidadBase{
 	}
 
 	public function validarLogin(){
-		$query = "SELECT * FROM acceso WHERE usuario='$this->usuario' and password='$this->password'";
+		$query = "SELECT * FROM acceso WHERE (usuario='$this->usuario' and password='$this->password') and estado = 1";
 		$result = $this->db()->query($query);
 		if($result->num_rows > 0){
 			return true;
@@ -104,19 +104,22 @@ class Login extends EntidadBase{
 
 	public function getPropiosRegistros(){
 		//Obtener los registros del propietario
-		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM acceso INNER JOIN accesosalas ON acceso.idAcceso = accesosalas.idAcceso INNER JOIN registro ON accesosalas.idSala = registro.idSala INNER JOIN companias ON registro.idCompanias = companias.idCompanias INNER JOIN salas on registro.idSala = salas.idSalas WHERE acceso.usuario = '$this->usuario'";
+		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM acceso INNER JOIN accesosalas ON acceso.idAcceso = accesosalas.idAcceso INNER JOIN registro ON accesosalas.idSala = registro.idSala INNER JOIN companias ON registro.idCompanias = companias.idCompanias INNER JOIN salas on registro.idSala = salas.idSalas WHERE acceso.usuario = '$this->usuario' and registro.estatus = 1";
 		$datos = $this->db()->query($query);
 		if($datos->num_rows > 0){
 			while ($row = $datos->fetch_array()) {
 				$resultSet[] = $row;
 			}		
 			return $resultSet;
+		}else{
+			return false;
 		}
+
 	}
 
 	public function getByIdRegistro($valor){
 		//Obtener los registros del propietario
-		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM acceso INNER JOIN accesosalas ON acceso.idAcceso = accesosalas.idAcceso INNER JOIN registro ON accesosalas.idSala = registro.idSala INNER JOIN companias ON registro.idCompanias = companias.idCompanias INNER JOIN salas on registro.idSala = salas.idSalas WHERE registro.idRegistro = $valor";
+		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM acceso INNER JOIN accesosalas ON acceso.idAcceso = accesosalas.idAcceso INNER JOIN registro ON accesosalas.idSala = registro.idSala INNER JOIN companias ON registro.idCompanias = companias.idCompanias INNER JOIN salas on registro.idSala = salas.idSalas WHERE registro.idRegistro = $valor and registro.estatus = 1";
 		$datos = $this->db()->query($query);
 		if($datos->num_rows > 0){
 			while ($row = $datos->fetch_array()) {
@@ -127,7 +130,7 @@ class Login extends EntidadBase{
 	}
 
 	public function DeletRegistro($valor){
-		$query = "DELETE FROM `registro` WHERE `registro`.`idRegistro` = $valor";
+		$query = "UPDATE `registro` SET `estatus` = '0' WHERE `registro`.`idRegistro` = $valor";
 		$datos = $this->db()->query($query);
 		return  $datos;
 	}

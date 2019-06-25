@@ -58,9 +58,12 @@ class Sala extends EntidadBase{
 		if($datos->num_rows > 0){
 			while ($row = $datos->fetch_object()) {
 				$resultSet[] = $row;
-			}		
+			}
+			return $resultSet;		
+		}else{
+			return false;
 		}
-		return $resultSet;
+		
 	}
 
 	public function arraySalaRespo(){
@@ -70,9 +73,12 @@ class Sala extends EntidadBase{
 		if($datos->num_rows > 0){
 			while ($row = $datos->fetch_array()) {
 				$resultSet[] = $row;
-			}		
+			}
+			return $resultSet;
+		}else{
+			return false;
 		}
-		return $resultSet;
+		
 	}
 
 	public function usuariosSistema(){

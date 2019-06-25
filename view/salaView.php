@@ -10,10 +10,8 @@
 	<!-- Styles -->
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="view/css/bootstrap/bootstrap.min.css">
-	<!-- Tabla bootstrap -->
-	<link rel="stylesheet" type="text/css" href="view/plug/datatables-plugins/dataTables.bootstrap.css">
-	<!-- Tabla bootstrap -->
-	<link rel="stylesheet" type="text/css" href="view/plug/datatables-responsive/dataTables.responsive.css">
+	<!-- Table -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<!-- Font awesome CSS -->
 	<link rel="stylesheet" type="text/css" href="view/fontawesome-free/css/all.css">
 	<!-- Custom CSS -->
@@ -119,9 +117,9 @@
 		<!-- Registro de Salas -->
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-striped">
+				<table class="table table-striped" id="myTable">
 					<thead>
-						<th scope="col">Item</th>
+						<th scope="col">No</th>
 						<th scope="col">Nombre Sala</th>
 						<th scope="col">Localidad</th>
 					</thead>
@@ -129,12 +127,15 @@
 					<tbody>
 						<?php
 							if(is_array($arraySalas)){
+									$cont = 1;
 									foreach ($arraySalas as $sala) {
+									$sala->idSalas;
 									echo "<tr>";
-									echo "<th>".$sala->idSalas."</th>";
+									echo "<th>".$cont."</th>";
 									echo "<th>".$sala->nombreSala."</th>";
 									echo "<th>".$sala->nombre."</th>";
 									echo "</tr>";
+									$cont++;
 								}
 							}
 						?>
@@ -157,8 +158,12 @@
 	<!-- Bootstrap JS -->
 	<script type="text/javascript" src="view/js/bootstrap/bootstrap.min.js"></script>
 	<!-- DATA TABLES -->
-	<script type="text/javascript" src="view/plug/datatables/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="view/plug/datatables-plugins/dataTables.bootstrap.js"></script>
-	<script type="text/javascript" src="view/plug/datatables-responsive/dataTables.responsive.js"></script>
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript">
+            $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+    </script>
+	
 </body>
 </html>

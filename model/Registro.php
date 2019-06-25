@@ -87,7 +87,7 @@ class Registro extends EntidadBase{
 	}
 
 	public function getRegistro(){
-		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM registro  INNER JOIN companias  ON registro.idCompanias = companias.idCompanias INNER JOIN salas  ON registro.idSala = salas.idSalas";
+		$query = "SELECT registro.idRegistro,registro.tema, companias.nombre, salas.nombreSala, registro.fecha,registro.horaInicio,registro.horaFin,registro.solicitante,registro.estatus FROM registro  INNER JOIN companias  ON registro.idCompanias = companias.idCompanias INNER JOIN salas  ON registro.idSala = salas.idSalas WHERE registro.estatus = 1";
 		$datos = $this->db()->query($query);
 		if($datos->num_rows > 0){
 			while ($row = $datos->fetch_array()) {
